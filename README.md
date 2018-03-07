@@ -1,6 +1,6 @@
 # my-blog
 
-## 预览地址：[www.chenyanfeng.cn](www.chenyanfeng.cn)
+## 预览地址：[www.chenyanfeng.cn](http://www.chenyanfeng.cn)
 
 > A Vue.js project
 
