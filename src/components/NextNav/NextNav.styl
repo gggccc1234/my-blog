@@ -1,0 +1,73 @@
+.down-wrapper
+  margin: 20px 0
+  height: 50px
+  display: flex
+  .notice-wrapper, .notice-detail-wrapper, .search-wrapper, .search-text-wrapper, .login-wrapper
+    border-radius: 25px
+    margin-right: 20px
+    box-shadow:0px 3px #3b636e,0px 3px 5px rgba(0,0,0,0.3)
+    .notice, .notice-detail, .search, .search-text, .login
+      position: relative
+      bottom: 1px
+      margin: 5px
+      height: 40px
+      border-radius: 20px
+      box-shadow: 0px 2px #7fafbc,0px 4px 5px rgba(0,0,0,0.3)
+    .notice, .search, .login
+      &:active
+        bottom: -1px
+        box-shadow:0px 0px #7fafbc,0px 1px 3px rgba(0,0,0,0.3)
+    &.notice-enter-active, &.notice-leave-active, &.search-enter-active, &.search-leave-active
+      transition: all 0.5s linear
+    &.notice-enter, &.notice-leave-to, &.search-enter, &.search-leave-to
+      flex: 0 0 0
+      width: 0
+      opacity: 0
+    .notice-detail, .search-text
+      line-height: 40px
+      text-align: left
+      text-indent: 20px
+  .notice-wrapper
+    flex: 0 0 50px
+  .notice-detail-wrapper
+    flex: 1
+    min-width: 0
+    .notice-detail
+      text-overflow: ellipsis
+      overflow: hidden
+      white-space: nowrap
+  .search-wrapper
+    flex: 0 0 50px
+  .search-text-wrapper
+    flex: 1
+    .search-text
+      .text
+        width: 80%
+        background: #88bfd4
+        color: #e0e4cc
+  .login-wrapper
+    flex: 0 0 100px
+    margin-right: 0px
+    .login
+      transition: all 0.2s
+      &:hover .lotext
+        text-shadow: 0px 0px #7fafbc,0px 0px 0px rgba(0,0,0,0.3)
+      .lotext
+        height: 40px
+        line-height: 40px
+        vertical-align: top
+        padding-right: 5px
+        color: #2c3e50
+        font: 15px/40px PT Sans
+        text-shadow: 0px 4px #7fafbc,0px 5px 6px rgba(0,0,0,0.3)
+        font-weight: bolder
+        transition: all 0.2s
+      .isLotext
+        text-shadow: 0px 0px #7fafbc,0px 0px 0px rgba(0,0,0,0.3)
+      .lopic
+        display: inline-block
+        width: 40px
+        height: 40px
+        transition: all 0.5s
+      .isLopic
+        transform: rotateZ(90deg)

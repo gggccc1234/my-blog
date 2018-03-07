@@ -1,0 +1,41 @@
+.label-manage
+  .label-item
+    height: 40px
+    background: #000
+    display: inline-block
+    box-sizing: border-box
+    width: 100%
+    background: #f58080
+    color: white
+    display: flex
+    margin-bottom: 10px
+    .label-name, .label-num, .delete-label
+      box-sizing: border-box
+    .label-name, .label-num
+      border-right: #e0e4cc 5px solid
+      display: inline-block
+      height: 40px
+      padding-left: 20px
+      line-height: 40px
+      font-size: 16px
+      vertical-align: top
+    .label-name
+      flex: 1 0 120px
+      background: #fff
+      color: #3b636e
+    .label-num
+      flex: 1 0 120px
+      background: #f69090
+    .delete-label
+      flex: 0 0 40px
+      background: #fff
+      text-align: center
+  .add-label
+    min-width: 280px
+    text-align: center
+    width: 100%
+    background: #88bfd4
+    display: inline-block
+@media only screen and (max-width: 750px)
+  .ltext
+    display: none

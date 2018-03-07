@@ -1,0 +1,33 @@
+{
+  "labelName": "Python"
+} 
+{
+  "labelName": "C++"
+}
+{
+  "labelName": "C"
+} 
+{
+  "labelName": "Java"
+} 
+{
+  "labelName": "HTML"
+} 
+{
+  "labelName": "Javascript"
+} 
+{
+  "labelName": "CSS"
+} 
+{
+  "labelName": "Ajax"
+} 
+{
+  "labelName": "JQury"
+} 
+{
+  "labelName": "Vue"
+} 
+{
+  "labelName": "Nodejs"
+}

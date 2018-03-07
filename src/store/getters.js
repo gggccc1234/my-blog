@@ -1,0 +1,16 @@
+export const currentArticle = state => state.currentArticle
+export const currentUser = state => state.currentUser
+export const allPage = state => state.allPage
+export const page = state => state.page
+export const labelArray = state => state.labelArray
+export const articleLists = state => state.articleLists
+export const isLogin = state => state.isLogin
+export const loginSuccess = state => state.loginSuccess
+export const timeArray = state => state.timeArray
+export const currentDraft = state => state.currentDraft
+export const checkUser = state => state.checkUser
+export const isChecked = state => state.isChecked
+export const isAdmin = state => state.isAdmin
+export const search = state => state.search
+export const pageSize = state => state.pageSize
+export const sort = state => state.sort

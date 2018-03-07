@@ -1,0 +1,42 @@
+.label-wrapper
+  .label
+    .label-item
+      &:hover
+        opacity: 0.7
+      &:hover .label-content
+        border-radius: 15px
+      &:hover .friend-content
+        border-radius: 15px
+      &:hover .label-content .label-num
+        border-radius: 50%
+      transition: all 0.5s
+      width: 50%
+      float: left
+      .label-content
+        background: #5c8a97
+        height: 30px
+        font-size: 13px
+        line-height: 30px
+        margin: 5px
+        border-top-left-radius: 15px
+        color: #fff
+        padding-left: 20px
+        transition: all 0.5s
+        .label-num
+          transition: all 0.5s
+          float: right
+          display: inline-block
+          background: #3b636e
+          height: 30px
+          width: 30px
+      .friend-content
+        transition: all 0.5s
+        height: 30px
+        font-size: 13px
+        line-height: 30px
+        margin: 5px
+        padding-left: 20px
+        border-right: #3b636e 2px solid
+        box-shadow:0px 4px #3b636e,0px 4px 6px rgba(0,0,0,0.3)
+        a
+          color: #fff

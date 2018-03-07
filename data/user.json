@@ -1,0 +1,70 @@
+{
+  "user-detail": [
+    {
+      "user-id": "",
+      "user-name": "",
+      "user-password": "",
+      "user-avatar-url": "",
+      "user-email": "",
+      "user-telephone": "",
+      "user-weibo": "",
+      "user-weixin": "",
+      "user-qq": "",
+      "user-github": "",
+      "user-blog": "",
+      "user-role": "",
+      "user-address": "",
+      "user-description": "",
+      "user-comment": [
+        {
+          "user-id": "",
+          "article-id": "",
+          "article-comment-id": "",
+          "article-comment-content": "",
+          "article-comment-good": 0,
+          "article-comment-bad": 0
+        }
+      ],
+      "user-collection": [
+        {
+          "article-id": ""
+        }
+      ],
+      "user-good-article": [
+        {
+          "arrticle-id": ""
+        }
+      ],
+      "user-bad-article": [
+        {
+          "arrticle-id": ""
+        }
+      ],
+      "user-good-comment": [
+        {
+          "user-id": "",
+          "article-id": "",
+          "article-comment-id": "",
+          "article-comment-content": "",
+          "article-comment-good": 0,
+          "article-comment-bad": 0
+        }
+      ],
+      "user-bad-comment": [
+        {
+          "user-id": "",
+          "article-id": "",
+          "article-comment-id": "",
+          "article-comment-content": "",
+          "article-comment-good": 0,
+          "article-comment-bad": 0
+        }
+      ],
+      "user-leave-message": [
+        {
+          "message-content": ""
+        }
+      ]
+    }
+  ]
+}

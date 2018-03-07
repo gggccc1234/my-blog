@@ -1,0 +1,85 @@
+.link-me
+  border-bottom: 2px #2c3e50 solid
+  border-left: 1px #5c8a97 solid
+  border-right: 1px #5c8a97 solid
+  flex: 0 0 60px
+  display: flex
+  flex-direction: row
+  .link-item
+    background: #a7dbd8
+    flex: 1
+    margin: 7px
+    box-shadow: 1px 1px #7fafbc inset,2px 3px 5px rgba(0,0,0,0.5) inset
+    position: relative
+    transition: all 0.3s
+    &:hover
+      background: #fff
+      box-shadow: 1px 1px #7fafbc,2px 3px 5px rgba(0,0,0,0.5)
+      border-radius: 50%
+      .top_tooltip
+        visibility: visible
+        opacity: 0.8
+        bottom: 55px
+        z-index: 999
+      .bottom_tooltip
+        visibility: visible
+        opacity: 0.8
+        top: 62px
+        z-index: 999
+      .weixin
+        margin-left: -149px
+      .qq
+        margin-left: -213px
+      .email
+        margin-left: -277px
+    .link-wrapper
+      position: absolute
+      top: 3px
+      bottom: 3px
+      right: 3px
+      left: 3px
+    .tooltip
+      height: auto
+      color: #fff
+      background: #2b2b2b
+      position: absolute
+      font-size: 13px
+      text-align: center
+      padding: 10px
+      line-height: 20px
+      visibility: hidden
+      border-radius: 10px
+      &:after
+        content: ''
+        position: absolute
+        left: 50%
+        margin-left: -8px
+        width: 0
+        height: 0
+        border-right: 8px solid transparent
+        border-left: 8px solid transparent
+    .top_tooltip
+      width: 60px
+      transition: all 0.5s
+      opacity: 0;
+      bottom: 100px
+      left: 50%
+      margin-left: -41px
+      &:after
+        top: 100%
+        border-top: 8px solid #2b2b2b
+    .bottom_tooltip
+      transition: all 0.5s
+      width: 280px
+      left: 50%
+      opacity: 0;
+      top: 62px
+      &:after
+        bottom: 100%
+        border-bottom: 8px solid #2b2b2b
+    .qq
+      &:after
+        margin-left: 56px
+    .email
+      &:after
+        margin-left: 120px

@@ -1,0 +1,40 @@
+{
+  "article-detail": [
+    {
+      "article-id": "",
+      "article-avatar-url": "",
+      "article-writer": {
+        "user-id": "",
+        "user-name": "",
+        "user-avatar-url": "",
+        "user-email": "",
+        "user-weibo": "",
+        "user-weixin": "",
+        "user-qq": "",
+        "user-github": "",
+        "user-blog": ""
+      },
+      "article-content": "",
+      "article-publish-time": "",
+      "article-visit-num": 0,
+      "article-good-num": 0,
+      "article-bad-num": 0,
+      "article-label": [
+        {
+          "label-name": ""
+        }
+      ],
+      "article-comment": [
+        {
+          "user-id": "",
+          "article-id": "",
+          "comment-id": "",
+          "comment-content": "",
+          "comment-good": 0,
+          "comment-bad": 0,
+          "comment-publish-time": ""
+        }
+      ]
+    }
+  ]
+}

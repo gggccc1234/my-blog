@@ -1,0 +1,45 @@
+.header
+  .up-wrapper
+    display: flex
+    flex-direction: row
+    height: 100px
+    line-height: 100px
+    &:hover .title
+      transform: translateX(-50px)
+    &:hover .lower-title
+      transform: translateX(50px)
+    .title
+      flex: 1
+      width: 100%
+      color: #e0e4cc
+      text-align: right
+      font-size: 56px
+      text-shadow: 0px 3px #7fafbc,0px 4px 5px rgba(0,0,0,0.3)
+      transition: all 0.5s
+    .lower-title
+      text-align: left
+      flex: 1.1
+      padding-left: 12px
+      width: 100%
+      color: #3b636e
+      font-size: 28px
+      text-shadow:1px 1px #7fafbc,0px 2px 4px rgba(0,0,0,0.3)
+      transition: all 0.5s
+  .login-box-wrapper
+    box-sizing: border-box
+    position: relative
+    width: 100%
+    height: 395px
+    background: rgba(0,0,0,0.2)
+    border-radius:5px;
+    box-shadow:0px 4px #3b636e inset,0px 4px 6px rgba(0,0,0,0.3) inset;
+    color: rgba(255,255,255,0.6)
+    &.fadelogin-enter-active, &.fadelogin-leave-active
+      transition: all 0.5s
+    &.fadelogin-enter, &.fadelogin-leave-to
+      height: 0
+      opacity: 0
+@media only screen and (max-width: 750px)
+  .header
+    .up-wrapper, .next-nav-wrapper
+      display: none

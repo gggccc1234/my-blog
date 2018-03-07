@@ -1,0 +1,220 @@
+{
+  "articleId": 1,
+  "userName": "Twinkle",
+  "publishTime": "2017-11-11",
+  "articleVisit": 348,
+  "articleComment": 0,
+  "articleLove": 19,
+  "articleTitle": "面向对象结构",
+  "articleLabel": "Java",
+  "articleSummary": "PS：此文章为小白提供，大佬请绕道！！！！ 首先特别感谢大才哥给我提供这个平台，未来我希望把java这个版块的内容补全。 今天要讲的是数据类型，最最最基础的内容~ java标识符、数据类型、关键字 开始我们先看下如何注释java代码。 标识符：类名，方法名，变量。 有三种方式分别..."
+} 
+{
+  "articleId": 2,
+  "userName": "Twinkle",
+  "publishTime": "2017-9-27",
+  "articleVisit": 352,
+  "articleComment": 10,
+  "articleLove": 9,
+  "articleTitle": "java基础之数据类型",
+  "articleLabel": "Java",
+  "articleSummary": "之前也发表过这样的一篇文章，可发现自己没有写好，所以今天又重新写了一下，这回就可以了。 前面可能有些东西没有理清，跟大家说声抱歉。 首先我们先列出java的基本结构 "
+} 
+{
+  "articleId": 3,
+  "userName": "哎哟卧槽",
+  "publishTime": "2017-9-26",
+  "articleVisit": 480,
+  "articleComment": 0,
+  "articleLove": 12,
+  "articleTitle": "小白进阶第七篇（Splash负载均衡）",
+  "articleLabel": "未分类",
+  "articleSummary": "对于Scrapy处理Ajax 处理方式当然是同家兄弟Splash比较靠谱！ 但是Splash有个很坑爹的毛病就是负载承受相对较小·· 一不留神就GG了·········· 然后也就没有然后了~~！ 所以准备给Splash做一个负载均衡；后端放一大堆的Splash这样总不会GG了吧..."
+} 
+{
+  "articleId": 4,
+  "userName": "四毛",
+  "publishTime": "2017-9-22",
+  "articleVisit": 4652,
+  "articleComment": 1,
+  "articleLove": 29,
+  "articleTitle": "自建免费PYTHON爬虫代理IP池",
+  "articleLabel": "Python",
+  "articleSummary": "大家好，我还是小四毛，不是崔老师！！！！崔老师在隔壁，哈哈哈。 写了一个从网上抓取代理IP，然后构建代理IP池的脚本，放在了这里：https://github.com/xiaosimao/IP_POOL 以后应该还会有很多的改动， 欢迎有兴趣的同学star，以便及时可以收到改动..."
+}
+{
+  "articleId": 5,
+  "userName": "崔庆才",
+  "publishTime": "2017-9-15",
+  "articleVisit": 375,
+  "articleComment": 0,
+  "articleLove": 11,
+  "articleTitle": "HTTP 206 获取文件部分内容和范围请求",
+  "articleLabel": "Net",
+  "articleSummary": "HTTP 2xx 范围内的状态码表明了“客户端发送的请求已经被服务器接受并且被成功处理了”。 HTTP/1.1 200 OK 是 HTTP 请求成功后的标准响应，当你在浏览器中打开某个网站后,你通常会得到一个 200 状态码。HTTP/1.1 206 状态码表示的是“客户端通过发..."
+} 
+{
+  "articleId": 6,
+  "userName": "四毛",
+  "publishTime": "2017-9-12",
+  "articleVisit": 3616,
+  "articleComment": 2,
+  "articleLove": 15,
+  "articleTitle": "轻型爬虫框架",
+  "articleLabel": "Python",
+  "articleSummary": "大家好，我是四毛,  不是崔老师。   恩，今天的内容很短, 主要都写在了README.md里面。     写了一个将爬虫基本步骤都封装起来的小框架，地址在https://github.com/xiaosimao/AiSpider， 欢迎Star..."
+} 
+{
+  "articleId": 7,
+  "userName": "崔庆才",
+  "publishTime": "2017-8-31",
+  "articleVisit": 1362,
+  "articleComment": 1,
+  "articleLove": 21,
+  "articleTitle": "Neo4j简介及Py2Neo的用法",
+  "articleLabel": "Pyhton",
+  "articleSummary": "Neo4j是一个世界领先的开源图形数据库，由 Java 编写。图形数据库也就意味着它的数据并非保存在表或集合中，而是保存为节点以及节点之间的关系。 Neo4j 的数据由下面几部分构成： 节点 边 属性 Neo4j 除了顶点（Node）和边（Relationship），还有一种..."
+} 
+{
+  "articleId": 8,
+  "userName": "哎哟卧槽",
+  "publishTime": "2017-8-23",
+  "articleVisit": 1251,
+  "articleComment": 1,
+  "articleLove": 13,
+  "articleTitle": "记scikit-learn贝叶斯文本分类的坑（弄了个笨办法解决了，有其它办法的小哥儿请指点）",
+  "articleLabel": "Python",
+  "articleSummary": "基本步骤： 1、训练素材分类： 我是参考官方的目录结构： 每个目录中放对应的文本，一个txt文件一篇对应的文章：就像下面这样 需要注意的是所有素材比例请保持在相同的比例（根据训练结果酌情调整、不可比例过于悬殊、容易造成过拟合（通俗点就是大部分文章都给你分到素材最多的那个类别去..."
+} 
+{
+  "articleId": 9,
+  "userName": "哎哟卧槽",
+  "publishTime": "2017-7-11",
+  "articleVisit": 4614,
+  "articleComment": 1,
+  "articleLove": 30,
+  "articleTitle": "小白进阶之Scrapy第五篇（Scrapy-Splash配合CrawlSpider；瞎几把整的）",
+  "articleLabel": "Python",
+  "articleSummary": "估摸着各位小伙伴儿被想使用CrawlSpider的Rule来抓取JS，相当受折磨； CrawlSpider Rule总是不能和Splash结合。 废话不多说，手疼····   方法1： 写一个自定义的函数，使用Rule中的process_request参数；来替换掉Ru..."
+} 
+{
+  "articleId": 10,
+  "userName": "哎哟卧槽",
+  "publishTime": "2017-6-7",
+  "articleVisit": 14089,
+  "articleComment": 11,
+  "articleLove": 79,
+  "articleTitle": "利用新接口抓取微信公众号的所有文章",
+  "articleLabel": "Python",
+  "articleSummary": "各位小伙儿伴儿，一定深受过采集微信公众号之苦吧！特别是！！！！！！公共号历史信息！！！这丫除了通过中间代理采集APP、还真没什么招数能拿到数据啊！ 直到············ 前天晚上微信官方发布了一个文章：点我 大致意思是说以后发布文章的时候可以直接插入其它公众号的文章了。..."
+}
+{
+  "articleId": 11,
+  "userName": "四毛",
+  "publishTime": "2017-06-05",
+  "articleVisit": 4651,
+  "articleComment": 4,
+  "articleLove": 23,
+  "articleTitle": "获取知乎问题答案并转换为MarkDown文件",
+  "articleLabel": "Python",
+  "articleSummary": "20170609 更新: 感谢一介草民与ftzz的反馈 (1) 修复中文路径保存问题 (2) 修复offset问题 (3) 修复第一个问题 来个好玩的东西 20170607 更新: (1) 感谢Ftzz提醒, 将图片替换为原图 (2) 将文件保存到本地,解决了最大..."
+} 
+{
+  "articleId": 12,
+  "userName": "崔庆才",
+  "publishTime": "2017-5-19",
+  "articleVisit": 4309,
+  "articleComment": 5,
+  "articleLove": 46,
+  "articleTitle": "使用Tornado+Redis维护ADSL拨号服务器代理池",
+  "articleLabel": "Python",
+  "articleSummary": "我们尝试维护过一个免费的代理池，但是代理池效果用过就知道了，毕竟里面有大量免费代理，虽然这些代理是可用的，但是既然我们能刷到这个免费代理，别人也能呀，所以就导致这个代理同时被很多人使用来抓取网站，所以当我们兴致勃勃地拿他来抓取某个网站的时候，会发现它还是被网站封禁的状态，所以在某..."
+} 
+{
+  "articleId": 13,
+  "userName": "崔庆才",
+  "publishTime": "2017-5-17",
+  "articleVisit": 2163,
+  "articleComment": 4,
+  "articleLove": 8,
+  "articleTitle": "Scrapyd日志输出优化",
+  "articleLabel": "Python",
+  "articleSummary": "现在维护着一个新浪微博爬虫，爬取量已经5亿+，使用了Scrapyd部署分布式。 Scrapyd运行时会输出日志到本地，导致日志文件会越来越大，这个其实就是Scrapy控制台的输出。但是这个日志其实有用的部分也就是最后那几百行而已，如果出错，去日志查看下出错信息就好了。 所以现在可..."
+} 
+{
+  "articleId": 14,
+  "userName": "四毛",
+  "publishTime": "2017-5-04",
+  "articleVisit": 7015,
+  "articleComment": 12,
+  "articleLove": 47,
+  "articleTitle": "密码保护：免登录新浪微博爬虫系列之第一篇 单博主微博及评论数据",
+  "articleLabel": "Python",
+  "articleSummary": "我的GITHUB地址：https://github.com/xiaosimao/weibo_spider 2017.05.04 更新： 感谢哥本哈根小树对于获取containnerid的指教，多谢。       大家好，我是新人四毛，大家可以叫我小四毛，至于为什么，在..."
+}
+{
+  "articleId": 15,
+  "userName": "哎哟卧槽",
+  "publishTime": "2017-4-23",
+  "articleVisit": 11522,
+  "articleComment": 23,
+  "articleLove": 34,
+  "articleTitle": "小白进阶之Scrapy第四篇（图片下载管道篇）",
+  "articleLabel": "Python",
+  "articleSummary": "PS： 爬虫不进入img_url函数的小伙伴儿 请尝试将将代码复制到你新建的py文件中。 2017/8/30 更新解决了网站防盗链导致下载图片失败的问题 这几天一直有小伙伴而给我吐槽说，由于妹子图站长把www.mzitu.com/all这个地址取消了。导致原来的那个采集爬虫不能..."
+} 
+{
+  "articleId": 16,
+  "userName": "崔庆才",
+  "publishTime": "2017-4-14",
+  "articleVisit": 12831,
+  "articleComment": 13,
+  "articleLove": 39,
+  "articleTitle": "利用Scrapy爬取知乎用户详细信息并存至MongoDB",
+  "articleLabel": "Python",
+  "articleSummary": "本节分享一下爬取知乎用户信息的Scrapy爬虫实战。 本节目标 本节要实现的内容有： 从一个大V用户开始，通过递归抓取粉丝列表和关注列表，实现知乎所有用户的详细信息的抓取。 将抓取到的结果存储到MongoDB，并进行去重操作。 思路分析 我们都知道每个人都有关注列表和粉丝列表..."
+} 
+{
+  "articleId": 17,
+  "userName": "哎哟卧槽",
+  "publishTime": "2017-4-11",
+  "articleVisit": 32785,
+  "articleComment": 5,
+  "articleLove": 1220,
+  "articleTitle": "小白学爬虫系列教程",
+  "articleLabel": "Pyhton",
+  "articleSummary": "听大才哥说好像我的文章挺难找的，这整理一下。 基础知识篇： 这玩意儿我没写，各位参考大才哥的： Python爬虫学习系列教程 Python3爬虫学习视频教程 小白系列教程 小白爬虫第一弹之抓取妹子图 小白爬虫第二弹之健壮的小爬虫 小白爬虫第三弹之去重去重 小白爬虫第四弹之爬虫快..."
+} 
+{
+  "articleId": 18,
+  "userName": "崔庆才",
+  "publishTime": "2017-4-10",
+  "articleVisit": 97849,
+  "articleComment": 14,
+  "articleLove": 2335,
+  "articleTitle": "Python3爬虫视频学习教程",
+  "articleLabel": "Python",
+  "articleSummary": "大家好哈，现在呢静觅博客已经两年多啦，可能大家过来更多看到的是爬虫方面的博文，首先非常感谢大家的支持，希望我的博文对大家有帮助！ 之前我写了一些Python爬虫方面的文章，Python爬虫学习系列教程，涉及到了基础和进阶的一些内容，当时更多用到的是Urllib还有正则，后来又陆续..."
+} 
+{
+  "articleId": 19,
+  "userName": "哎哟卧槽",
+  "publishTime": "2017-3-19",
+  "articleVisit": 5368,
+  "articleComment": 6,
+  "articleLove": 42,
+  "articleTitle": "Scrapy小技巧-MySQL存储",
+  "articleLabel": "Python",
+  "articleSummary": "这两天上班接手，别人留下来的爬虫发现一个很好玩的 SQL脚本拼接。 只要你的Scrapy Field字段名字和 数据库字段的名字 一样。那么恭喜你你就可以拷贝这段SQL拼接脚本。进行MySQL入库处理。 具体拼接代码如下： ..."
+} 
+{
+  "articleId": 20,
+  "userName": "yvette_",
+  "publishTime": "2017-3-12",
+  "articleVisit": 1215,
+  "articleComment": 1,
+  "articleLove": 8,
+  "articleTitle": "WordPress 远程附件上传插件 For 又拍云【升级版】",
+  "articleLabel": "Python",
+  "articleSummary": "今天给大家介绍 WordPress Plugin for UPYUN 插件，专为又拍云和 WordPress 用户准备，主要功能如下： 可以与 WordPress 无缝结合，通过 WordPress 上传图片和文件到又拍云, 支持大文件上传（需要开启表单 API) 和防盗链功能..."
+}

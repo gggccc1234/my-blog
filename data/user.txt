@@ -1,0 +1,70 @@
+{
+  "userId": 1,
+  "userName": "桂雏菊",
+  "userPassword": "123456",
+  "userAvatarUrl": "",
+  "userEmail": ""
+}
+{
+  "userId": 2,
+  "userName": "dasiy",
+  "userPassword": "123456",
+  "userAvatarUrl": "",
+  "userEmail": ""
+}
+{
+  "userId": 3,
+  "userName": "桥本奈奈未",
+  "userPassword": "123456",
+  "userAvatarUrl": "",
+  "userEmail": ""
+}
+{
+  "userId": 4,
+  "userName": "HM773",
+  "userPassword": "123456",
+  "userAvatarUrl": "",
+  "userEmail": ""
+}
+{
+  "userId": 5,
+  "userName": "123456",
+  "userPassword": "123456",
+  "userAvatarUrl": "",
+  "userEmail": ""
+}
+{
+  "userId": 6,
+  "userName": "admin",
+  "userPassword": "123456",
+  "userAvatarUrl": "",
+  "userEmail": ""
+}
+{
+  "userId": 7,
+  "userName": "root",
+  "userPassword": "123456",
+  "userAvatarUrl": "",
+  "userEmail": ""
+}
+{
+  "userId": 8,
+  "userName": "小红",
+  "userPassword": "123456",
+  "userAvatarUrl": "",
+  "userEmail": ""
+}
+{
+  "userId": 9,
+  "userName": "小明",
+  "userPassword": "123456",
+  "userAvatarUrl": "",
+  "userEmail": ""
+}
+{
+  "userId": 10,
+  "userName": "站长",
+  "userPassword": "123456",
+  "userAvatarUrl": "",
+  "userEmail": ""
+}

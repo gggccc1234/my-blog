@@ -1,0 +1,28 @@
+.button-list
+  margin-top: 25px
+  display: flex
+  height: 40px
+  line-height: 40px
+  .next-page, .now-page, .prev-page
+    text-align: center
+    background: #5c8a97
+    box-shadow:0px 4px #3b636e,0px 4px 6px rgba(0,0,0,0.3);
+  .next-page, .prev-page
+    flex: 1
+    transition: all 0.3s
+    &:hover
+      background:#bae0ea
+    &:active
+      background:#bae0ea
+      box-shadow:0px 0px #7fafbc,0px 1px 3px rgba(0,0,0,0.3)
+  .next-page
+    border-top-right-radius: 10px
+    border-bottom-right-radius: 10px
+  .prev-page
+    border-top-left-radius: 10px
+    border-bottom-left-radius: 10px
+  .now-page
+    flex: 0 0 100px
+    .now-page-num
+      text-align: center
+      background: #5c8a97

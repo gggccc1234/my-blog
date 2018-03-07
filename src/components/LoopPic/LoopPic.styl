@@ -1,0 +1,78 @@
+.loop-pic-wrapper
+  border: 15px #5c8a97 solid
+  background: #5c8a97
+  overflow: hidden
+  position: relative
+  .loop-pic
+    width: 100%
+    padding-top: 50%
+    background: #fff
+    position: relative
+    border: 50px #fff
+    .pic
+      position: absolute
+      display: inline
+      z-index: 90
+      top: 0
+      left: 0%
+      width: 100%
+      height: 100%
+      &.loop-enter-active, &.loop-leave-active
+        transition: all 0.5s
+      &.loop-enter
+        transform: translateX(100%)
+      &.loop-leave-to
+        transform: translateX(-100%)
+    .text
+      position: absolute
+      display: inline-block
+      z-index: 99
+      top: 0
+      left: 0%
+      bottom: 1px;
+      height: 40px
+      width: 800px
+      color: #fff
+      background: #5c8a97
+      text-align: left
+      padding: 0px 10px
+      line-height: 40px
+      font-size: 30px
+      transform: translateX(-250px) translateY(50px) rotate(-30deg)
+      text-align: center
+  .loop-button-wrapper
+    position: absolute
+    display: flex
+    height: 50px
+    right: 10%
+    bottom: 10px
+    z-index: 99
+    .loop-button
+      flex: 1
+      position: relative
+      bottom: 1px;
+      background: #5c8a97
+      margin: 5px
+      height: 32px
+      width: 32px
+      border-radius: 16px
+      color: #bae0ea
+      box-shadow: 0px 4px #3b636e,0px 10px 5px rgba(0,0,0,0.3)
+      &:hover
+        color: white
+      &:active
+        color: white
+        bottom: -1px
+        box-shadow:0px 0px #7fafbc,0px 1px 3px rgba(0,0,0,0.3)
+    .active
+      color: white
+      bottom: -1px
+      box-shadow:0px 0px #7fafbc,0px 1px 3px rgba(0,0,0,0.3)
+    .page
+      text-align: center
+      font-size: 20px
+      line-height: 32px
+      text-shadow: 0px 1px #7fafbc,0px 5px 5px rgba(0,0,0,0.7)
+@media only screen and (max-width: 500px)
+  .loop-pic-wrapper
+    border: 0px #5c8a97 solid

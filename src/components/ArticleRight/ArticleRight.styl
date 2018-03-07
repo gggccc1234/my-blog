@@ -1,0 +1,121 @@
+.article-right
+  flex: 1
+  display: flex
+  flex-direction: column
+  position: relative
+  padding: 5px
+  transition: all 0.3s
+  background: #bae0ea
+  padding-top: 6px
+  .icon-right
+    position: absolute
+    width: 0
+    height: 0
+    left: -15px
+    border-top: 15px solid transparent
+    border-right: 15px solid #bae0ea
+    border-bottom: 15px solid transparent
+    transition: all 0.5s
+  .icon1
+    top: 68%
+  .icon2
+    top: 38%
+  .icon3
+    top: 8%
+  .article-title-wrapper
+    text-align: left
+    font-size: 16px
+    font-weight: bolder
+    line-height: 23px
+    margin-bottom: 10px
+    flex: 1 1 auto
+    .article-title, .article-label
+      padding: 0 5px
+    .article-title
+      transition: all 0.3s
+      margin-right: 10px
+      color: #f78585
+    .article-label
+      background: #f78585
+      color: white
+      transition: all 0.3s
+      box-shadow: 0px 2px 2px rgba(0,0,0,0.3) inset
+  .article-content-wrapper
+    flex: 1 1 auto
+    display: flex
+    display: -webkit-flex
+    .article-pic-wrapper
+      flex: 0 0 auto
+      width: 210px
+      height: 140px
+      overflow: hidden
+      .article-pic
+        width: 210px
+        height: 140px
+        background-position: 100% 90%
+        background-size: 134% 100%
+        transition: all 0.5s
+    .article-top
+      padding-left: 10px
+      flex: 1
+      overflow : hidden
+      height: 140px
+      .article-summary
+        word-break: break-all
+        word-wrap: break-word
+        text-indent: 30px
+        font-size: 15px
+        line-height: 20px
+        text-align: left
+.move
+  margin-left: 20px
+  &:hover
+    .article-content-wrapper
+      .article-pic-wrapper
+        .article-pic
+          width: 240px
+          height: 160px
+
+@media only screen and (max-width: 1100px) and (min-width: 900px), (max-width: 750px)
+  .move
+    margin-left: 0px
+    &:hover
+      .article-content-wrapper
+        .article-pic-wrapper
+          .article-pic
+            width: 196px
+            height: 132px
+    .article-content-wrapper
+      .article-pic-wrapper
+        width: 180px
+        height: 120px
+        .article-pic
+          width: 180px
+          height: 120px
+      .article-top
+        height: 120px
+    .icon-right
+      display: none
+@media only screen and (max-width: 500px)
+  .move
+    margin-left: 0px
+    &:hover
+      .article-content-wrapper
+        .article-pic-wrapper
+          .article-pic
+            width: 132px
+            height: 88px
+    .article-content-wrapper
+      .article-pic-wrapper
+        width: 120px
+        height: 80px
+        .article-pic
+          width: 120px
+          height: 80px
+      .article-top
+        height: 80px
+        .article-summary
+          text-indent: 24px
+          font-size: 12px
+    .icon-right
+      display: none

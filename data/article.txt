@@ -1,0 +1,14 @@
+{
+  "articleId": "",
+  "userId": "",
+  "userName": "",
+  "userAvatarUrl": ""
+  "articleContent": "",
+  "publishTime": "",
+  "articleVisit": 0,
+  "articleComment": 0,
+  "articleLove": 0,
+  "articleTitle": "",
+  "articleLabel": "",
+  "articleSummary": ""
+}

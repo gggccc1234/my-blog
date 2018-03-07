@@ -1,0 +1,122 @@
+.nav-wrapper
+  height: 70px
+  width: 100%
+  .nav-detail
+    display: none
+    margin: 10px 0
+    width: 100%
+    .title
+      text-align: center
+      width: 100%
+      color: #e0e4cc
+      font-size: 40px
+      text-shadow: 0px 3px #7fafbc,0px 4px 5px rgba(0,0,0,0.3)
+      height: 50px
+    .nav-icon
+      position: absolute
+      top: 10px
+      left: 3%
+      width: 40px
+      height: 40px
+    .col-nav-wrapper
+      width: 100%
+      &.slide-enter-active, &.slide-leave-active
+        transition: all 0.3s cubic-bezier(0,.8,0,1)
+      &.slide-enter, &.slide-leave-to
+        height: 0
+        opacity: 0
+        .col-nav
+          .col-nav-item
+            a
+              height: 0
+      .col-nav
+        flex-direction: column
+        padding: 20px
+        padding-top: 0px
+        .col-nav-item
+          display: inline-block
+          width: 100%
+          margin-bottom: 15px
+          a
+            display: inline-block
+            width: 100%
+            &:hover
+              background:#bae0ea
+              .active
+                background: #bae0ea
+  .nav
+    padding: 0 20px
+    height: 70px
+    border-top-left-radius: 15px
+    border-top-right-radius: 15px
+    .nav-item
+      margin-left: 20px
+      &:first-child
+        margin-left: 0
+      a
+        border-radius: 6px
+        text-shadow: 0px 4px #7fafbc,0px 5px 6px rgba(0,0,0,0.3)
+        box-shadow: 0px 4px #7fafbc,0px 5px 6px rgba(0,0,0,0.3)
+        &:hover
+          background:#bae0ea
+          text-shadow: 0px 0px #7fafbc,0px 0px 0px rgba(0,0,0,0.3)
+        &:active
+          bottom:-4px
+          box-shadow:0px 0px #7fafbc,0px 1px 3px rgba(0,0,0,0.3)
+      .active
+        background: #bae0ea
+        bottom: -4px
+        box-shadow: 0px 1px #7fafbc inset,0px 4px 5px rgba(0,0,0,0.3) inset
+        text-shadow: 0px 0px #7fafbc,0px 0px 0px rgba(0,0,0,0.3)
+.nav, .col-nav
+  box-sizing: border-box
+  background: #5c8a97
+  width: 100%
+  display: flex
+  .nav-item, .col-nav-item
+    flex: 1
+    overflow: hidden
+    position: relative
+    bottom: -15px
+    transition: all 0.5s linear
+    a
+      overflow: hidden
+      box-sizing: border-box
+      background: #a1d0dd
+      display: block
+      color: #2c3e50
+      position: relative
+      text-decoration: none
+      height: 40px
+      font: 15px/40px PT Sans
+      transition: all 0.3s ease
+      font-weight: bolder
+    .s-a
+      text-align: left
+      .s-icon-wrp
+        position: relative
+        display: inline-block
+        width: 50px
+        height: 40px
+        .s-icon
+          position: absolute
+          top: 0
+          left: 0
+      .s-wrp
+        position: relative
+        display: inline-block
+        width: 70%
+        height: 40px
+        .minsearch
+          position: absolute
+          top: 0
+          left: 0
+          height: 40px
+          width: 100%
+@media only screen and (max-width: 750px)
+  .nav-wrapper
+    height: auto
+    .nav-detail
+      display: inline-block
+    .nav
+      display: none

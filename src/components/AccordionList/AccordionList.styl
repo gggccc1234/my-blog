@@ -1,0 +1,55 @@
+.hot-wrapper
+  .hot-list
+    .hot-item
+      margin-top: 5px
+      vertical-align: top
+      .hot-head
+        &:hover
+          opacity: 0.7
+          border-top-left-radius: 5px
+          border-top-right-radius: 5px
+        &:hover .hot-rank
+          background: #5c8a97
+        &:hover .hot-name
+          background: #2c3e50
+        &:hover .heart-icon
+          background: #5c8a97
+        &:hover .heart-num
+          background: #2c3e50
+          border-top-right-radius: 5px
+        transition: all 0.5s
+        background: #5c8a97
+        font-size: 13px
+        color: #fff
+        height: 30px
+        line-height: 30px
+        border-top-left-radius: 5px
+        border-top-right-radius: 5px
+        display: flex
+        .hot-rank
+          transition: all 0.5s
+          flex: 0 0 30px
+          background: #2c3e50
+          border-top-left-radius: 5px
+        .hot-name
+          transition: all 0.5s
+          overflow: hidden
+          flex: 1
+        .heart-icon
+          transition: all 0.5s
+          flex: 0 0 30px
+          background: #2c3e50
+        .heart-num
+          transition: all 0.5s
+          flex: 0 0 50px
+          border-top-right-radius: 5px
+      .hot-pic-wrapper
+        border-bottom-left-radius: 5px
+        border-bottom-right-radius: 5px
+        overflow: hidden
+        height: 150px
+        &.hot-enter-active, &.hot-leave-active
+          transition: all 0.5s
+        &.hot-enter, &.hot-leave-to
+          height: 0
+          opacity: 0
