@@ -1,7 +1,7 @@
 <template>
   <div class="article-wrapper">
     <ul class="article-list" v-for="(item, index) in articleLists">
-      <li class="article-item" @click="turnArt(item)">
+      <li class="article-item" @click="turnArt(item, index)">
         <article-left :item='item'></article-left>
         <article-right :item='item'></article-right>
       </li>
@@ -17,7 +17,7 @@
 <script type="text/ecmascript-6">
 // 首页文章列表组件
   import TurnPage from '@/components/TurnPage/TurnPage'
-  import {mapGetters} from 'vuex'
+  import {mapGetters, mapMutations} from 'vuex'
   import ArticleLeft from '@/components/ArticleLeft/ArticleLeft'
   import ArticleRight from '@/components/ArticleRight/ArticleRight'
   import {turnArticleMixin} from '@/common/js/mixin'
@@ -26,7 +26,9 @@
     mixins: [turnArticleMixin],
     computed: {
       ...mapGetters([
-        'articleLists'
+        'articleLists',
+        'page',
+        'pageSize'
       ])
     },
     data () {
@@ -43,11 +45,15 @@
         this.$emit('next')
       },
       // 下一页
-      turnArt (item) {
+      turnArt (item, index) {
         this.article = item
+        this.setIndexPage((this.page - 1) * this.pageSize + index + 1)
         this.turnArticle()
-      }
+      },
       // 跳转到正文
+      ...mapMutations({
+        setIndexPage: 'SET_INDEX_PAGE'
+      })
     },
     components: {
       TurnPage,

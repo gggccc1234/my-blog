@@ -1,6 +1,6 @@
 <template>
   <div class="hot-wrapper">
-    <div class="hot-list" v-for="(item,index) in hotLists">
+    <div class="hot-list" v-for="(item, index) in hotLists">
       <div class="hot-item" @click="changeHot(item, index)">
         <div class="hot-head">
           <span class="hot-rank">{{index+1}}</span>

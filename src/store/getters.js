@@ -14,3 +14,4 @@ export const isAdmin = state => state.isAdmin
 export const search = state => state.search
 export const pageSize = state => state.pageSize
 export const sort = state => state.sort
+export const indexPage = state => state.indexPage

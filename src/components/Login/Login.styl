@@ -1,4 +1,5 @@
 .login-box
+  overflow: hidden
   background: rgba(0,0,0,0.2)
   position: absolute
   top: 10px
@@ -16,52 +17,44 @@
     width: 100%
     font-size: 15px
     font-family: PT Sans,Arial,sans-serif
+    display: flex
     .username, .password, .ymail, .yzm .yzm-input
-      width: 180px
+      width: 40px
       box-shadow:0px 4px 3px rgba(0,0,0,0.3) inset;
       background: rgba(0,0,0,0.4)
       color: rgba(255,255,255,0.6)
-    .yzm
-      display: inline-block
-      width: 148px
-      height: 50px
-      position: relative
-      .yzm-input
-        position: absolute
-        top: 0
-        left: 0
-        bottom: 0
-        width: 150px
-        display: inline-block
     .text
-      display: inline-block
-      width: 90px
       box-shadow:0px 4px 3px rgba(0,0,0,0.3);
+      flex: 2
     .submit
-      display: inline-block
-      width: 270px
       box-shadow:0px 4px 3px rgba(0,0,0,0.3);
       background: rgba(0,0,0,0.2)
       color: rgba(255,255,255,0.6)
       height: 20px
       text-align: center
-  .yzm-wrapper
-    position: relative
+      flex: 1
+    .username, .password, .ymail
+      flex: 5
+    .yzm
+      flex: 1
+      display: flex
+      .yzm-input
+        flex: 1 1
+        display: inline-block
+        width: 80px
   .remember, .register-wrapper
     height: 17px
+    .space
+      width: 5px
     .remember-box, .register
-      width: 132px
-      display: inline-block
+      flex: 1
       box-shadow:0px 4px 3px rgba(0,0,0,0.3);
       height: 20px
       .retext
         height: 100%
         width: 100%
-        display: inline-block
         padding-top: 3px
       .isre
         background: rgba(0,0,0,0.2)
       .checkbox
         width: 0
-    .register
-      width: 268px

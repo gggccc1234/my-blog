@@ -4,17 +4,37 @@
   padding: 20px
   display: inline-block
   width: 100%
-  .article-header
+  .article-header, .return-wrapper
     border-left: 6px #3b636e solid
     background: #f78585
-    height: auto
-    color: #fff
     font: 18px/20px "PT Sans",Arial,sans-serif;
     font-weight: bolder
-    text-align: left
     padding: 10px
     margin-bottom: 5px
+    color: #fff
+    text-align: left
+  .return-wrapper
+    height: 22px
+    position: relative
+    .returnP
+      position: absolute
+      left: 0
+      padding-left: 10px
+      top: 0
+      width: 100%
+      bottom: 0
+      .returnicon
+        height: 100%
+      .returntext
+        position: absolute
+        left: 40px
+        top: 0
+        bottom: 0
+        color: #fff
+        line-height: 40px
+        cursor: default
   .next-header
+    margin-bottom: 5px
     border-left: 6px #3b636e solid
     background: #a1d0dd
     height: auto
@@ -24,7 +44,7 @@
     padding: 10px 10px 2px 0
     .userName-wrapper, .articleLabel-wrapper, .publishTime-wrapper, .articleVisit-wrapper, .articleComment-wrapper
       display: inline-block
-      padding: 0 20px
+      padding: 0 10px
       .article-img, .article-text
         display: inline-block
       .article-text
@@ -37,13 +57,20 @@
           color: white
   .line
     height: 0
-    margin: 20px 0px
+    margin: 15px 0px
     border: 2px #3b636e solid
+  .paper
+    display: flex
+    padding: 0 14px
+    .prevpaper, .nextpaper
+      flex: 1
+    .prevpaper
+      text-align: left
+    .nextpaper
+      text-align: right
   .articleContent
     text-align: left
     width: 100%
-    #123
-      word-break: break-word
   .article-footer
     width: 100%
     display: inline-block

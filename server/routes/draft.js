@@ -38,107 +38,148 @@ router.get("/list", function (req, res, next) {
 });
 
 // 发布草稿
-router.get("/publish", function(req, res, next) {
-  let operate = req.param('operate')
+router.post("/publish", function(req, res, next) {
+  let operate = req.body.operate
   let timeStamp = new Date()
   let num = Math.floor(Math.random()*10000) + ''
   let publishTime = `${timeStamp.getFullYear()}-${timeStamp.getMonth() + 1}-${timeStamp.getDate()}`
-  let currentDraft = JSON.parse(req.param("currentDraft"))
+  let currentDraft = req.body.currentDraft
   let articleId = currentDraft.articleId
   let articleLabels = currentDraft.articleLabels
   currentDraft.publishTime = publishTime
+  // 利用对象生成一个新条目
   let newArticles = new Articles(currentDraft)
   if (operate === '0' || operate === 0) {
-    // 把草稿存入文章库
-    newArticles.save(function (err, doc) {
+    // 把草稿简介存入文章简介库
+    newArticles.save(function (err) {
       if (err) {
         res.json({
           status: '1',
           msg: err.message
         });
-      }
-    })
-    Draftdetails.findOne({
-      articleId: articleId
-    }, function (err, doc) {
-      if (err) {
-        res.json({
-          status: '4',
-          msg: err.message
-        });
       } else {
-        let newArticleDetails = new Articledetails(doc)
-        newArticleDetails.save(function (err, doc) {
-          if (err) {
+        // 把草稿详情存入文章详情库
+        Draftdetails.findOne({
+          articleId: articleId
+        }, function (err1, doc1) {
+          if (err1) {
             res.json({
-              status: '3',
-              msg: err.message
+              status: '4',
+              msg: err1.message
             });
+          } else {
+            Articledetails.create({
+              articleId: doc1.articleId,
+              userId: doc1.userId,
+              articleContent: doc1.articleContent,
+              articleComments: doc1.articleComments
+            }, function (err2) {
+              if (err2) {
+                res.json({
+                  status: '3',
+                  msg: err2.message
+                });
+              } else {
+                // 修改文章时间标签的数目
+                let tptime = publishTime.substring(0, 7)
+                if (tptime[tptime.length - 1] === '-') {
+                  tptime = tptime.substring(0, 6)
+                }
+                Times.update({
+                  name: tptime
+                }, {
+                  $inc: {
+                    num: 1
+                  }
+                }, function (err4, doc4) {
+                  if (err4) {
+                    res.json({
+                      status: '9',
+                      msg: err4.message,
+                      result: ''
+                    })
+                  } else {
+                    Drafts.remove({
+                      articleId: articleId
+                    }).then(function (doc5, err5) {
+                      if (err5) {
+                        res.json({
+                          status: '2',
+                          msg: err5.message
+                        });
+                      } else {
+                        Draftdetails.remove({
+                          articleId: articleId
+                        }).then(function (doc6, err6) {
+                          if (err6) {
+                            res.json({
+                              status: '1',
+                              msg: err6.message
+                            });
+                          } else {
+                            // 修改文章分类标签的数目
+                            articleLabels.forEach((item, index, array) => {
+                              Labels.update({
+                                name: item.labelName
+                              }, {$inc: {
+                                num: 1
+                              }}, function (err3) {
+                                if (err3) {
+                                  res.json({
+                                    status: '8',
+                                    msg: err3.message,
+                                    result: ''
+                                  })
+                                } else if (index === array.length - 1) {
+                                  res.json({
+                                    status: '0',
+                                    msg: '',
+                                    result: 'suc'
+                                  })
+                                }
+                              })
+                            })
+                          }
+                        })
+                      }
+                    })
+                  }
+                })
+              }
+            })
           }
         })
       }
     })
-    // 修改文章分类标签的数目
-    articleLabels.forEach((item) => {
-      Labels.update({
-        name: item.labelName
-      }, {$inc: {
-        num: 1
-      }}, function (err) {
-        if (err) {
-          res.json({
-            status: '8',
-            msg: err.message,
-            result: ''
-          })
-        }
-      })
-    })
-    // 修改文章时间标签的数目
-    let tptime = publishTime.substring(0, 7)
-    Times.update({
-      name: tptime
-    }, {
-      $inc: {
-        num: 1
-      }
-    }, function (err, doc) {
-      if (err) {
+  } else {
+    Drafts.remove({
+      articleId: articleId
+    }).then(function (doc5, err5) {
+      if (err5) {
         res.json({
-          status: '9',
-          msg: err.message,
-          result: ''
+          status: '2',
+          msg: err5.message
+        });
+      } else {
+        Draftdetails.remove({
+          articleId: articleId
+        }).then(function (doc6, err6) {
+          if (err6) {
+            res.json({
+              status: '1',
+              msg: err6.message
+            });
+          } else {
+            res.json({
+              status: '0',
+              msg: '',
+              result: 'suc'
+            })
+          }
         })
       }
     })
   }
-  // 发布成功，删除草稿箱里的原草稿文章简介
-  Drafts.remove({
-    articleId: articleId
-  }).then(function (err, doc) {
-    if (err) {
-      res.json({
-        status: '2',
-        msg: err.message
-      });
-    }
-  })
-  // 发布成功，删除草稿箱里的原草稿文章详情
-  Draftdetails.remove({
-    articleId: articleId
-  }).then(function (err, doc) {
-    if (err) {
-      res.json({
-        status: '1',
-        msg: err.message
-      });
-    }
-  })
-  res.json({
-    status: '0',
-    msg: '',
-    result: 'suc'
-  })
 })
 
 module.exports = router;

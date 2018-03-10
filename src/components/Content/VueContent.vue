@@ -1,7 +1,9 @@
 <template>
   <div class="content">
     <div class="vcl-wrapper">
-      <router-view></router-view>
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
     </div>
     <div class="vcr-wrapper">
       <vue-content-right></vue-content-right>

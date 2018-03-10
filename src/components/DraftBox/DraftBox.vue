@@ -5,7 +5,7 @@
         <article-left :item='item' :isMove='false'></article-left>
         <article-right :item='item' :isMove='false'></article-right>
       </li>
-      <article-button :article='item' :isPublish='isPublish' :isTurn='isTurn' :isCheck='isCheck' @publish="publishArticle(item, 0)" @delete="deleteArticle(item)"></article-button>
+      <article-button :article='item' :isPublish='isPublish' :isTurn='isTurn' :isCheck='isCheck' :isLoop='isLoop' @publish="publishArticle(item, 0)" @delete="deleteArticle(item)"></article-button>
     </ul>
     <!-- <turn-page @prev='onprevPage()' @next='onnextPage()'></turn-page> -->
   </div>
@@ -34,8 +34,9 @@
         // 跳转到原文
         isPublish: true,
         // 发表
-        isCheck: false
+        isCheck: false,
         // 选择
+        isLoop: 0
       }
     },
     computed: {
@@ -88,19 +89,13 @@
         this.publishArticle(item, 1)
       },
       publishArticle (item, operate) {
-        let param = {
+        axios.post('/draft/publish', {
           currentDraft: item,
           operate: operate
-        }
-        axios.get('/draft/publish', {
-          params: param
         }).then((response) => {
           let res = response.data
-          if (res.status === '0') {
-            let temp = this.draftLists.filter((item1) => {
-              return item.articleId !== item1.articleId
-            })
-            this.draftLists = temp
+          if (res.status === '0' || res.status === 0) {
+            this.$router.push('/mainpage')
           } else {
             console.log(res.msg)
           }

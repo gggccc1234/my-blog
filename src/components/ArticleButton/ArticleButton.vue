@@ -1,6 +1,6 @@
 <template>
   <div class="article-button-wrapper">
-    <operate-button :isCheck="isCheck" :isTurn="isTurn" :isDelete="isDelete" :isCollect="isCollect" :isPublish="isPublish" :isLoop="isLoop" @loop="toggleLoop()" @turn="turnArticle()" @check="checkArticle()" @delete="deleteArticle()" @collect="collectArticle()" @publish="publishArticle()"></operate-button>
+    <operate-button :isCheck="isCheck" :isTurn="isTurn" :isDelete="isDelete" :isCollect="isCollect" :isPublish="isPublish" :isLoop="isLoops" @loop="toggleLoop()" @turn="turnArticle()" @check="checkArticle()" @delete="deleteArticle()" @collect="collectArticle()" @publish="publishArticle()"></operate-button>
   </div>
 </template>
 
@@ -40,16 +40,21 @@
       isPublish: {
         type: Boolean,
         default: false
+      },
+      isLoop: {
+        type: Number,
+        default: 1
       }
     },
     data () {
       return {
-        isLoop: 1
+        isLoops: 1
       }
     },
     mounted () {
+      this.isLoops = this.isLoop
       if (this.article.loop) {
-        this.isLoop = 2
+        this.isLoops = 2
       }
     },
     methods: {

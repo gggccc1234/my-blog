@@ -25,6 +25,11 @@
 <script type="text/ecmascript-6">
 // 文章列表右边部分
   export default {
+    data () {
+      return {
+        doms: null
+      }
+    },
     props: {
       // 当前项的数据
       item: {
@@ -39,9 +44,12 @@
     },
     mounted () {
       // 添加背景图片
-      var doms = document.getElementsByClassName(this.item.articleId)
-      for (let i = 0; i < doms.length; i++) {
-        doms[i].style['backgroundImage'] = 'url(' + this.item.articleAvatarUrl + '-minipic)'
+      this.doms = document.getElementsByClassName(this.item.articleId)[0]
+      this.doms.style['backgroundImage'] = 'url(' + this.item.articleAvatarUrl + '-minipic)'
+    },
+    watch: {
+      item (newVal) {
+        this.doms.style['backgroundImage'] = 'url(' + newVal.articleAvatarUrl + '-minipic)'
       }
     }
   }

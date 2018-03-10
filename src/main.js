@@ -12,7 +12,7 @@ import VueLazyLoad from 'vue-lazyload'
 fastclick.attach(document.body)
 
 Vue.use(VueLazyLoad, {
-  loading: require('../static/wait.gif')
+  loading: require('../static/img/wait.gif')
   // 设置图片被加载前显示的默认图片
 })
 

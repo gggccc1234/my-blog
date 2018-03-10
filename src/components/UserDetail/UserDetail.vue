@@ -174,7 +174,7 @@
             } else {
               this.setCurrentUser(res.result)
             }
-            alert('修改成功')
+            alert('修改成功,重新登陆后新信息生效')
             console.log(res.result)
             this.$router.push('/mainpage')
           } else {

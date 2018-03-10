@@ -8,6 +8,7 @@
     <div class="line"></div>
     <div class="remember" v-show="!isRegister">
       <label class="remember-box"><div class="retext" @click.stop="isReUn()" :class="{'isre':isRememberUsername}">记住用户名</div><input type="checkbox" class="checkbox" name="remember"></label>
+      <div class="space"></div>
       <label class="remember-box"><div class="retext" @click.stop="isRePw()" :class="{'isre':isRememberPassword}">记住密码</div><input type="checkbox" class="checkbox" name="remember"></label>
     </div>
     <label class="ymail-wrapper" v-show="isRegister"><div class="text">邮箱：</div><input class="ymail" type="text" name="ymail" v-model="userEmail"></label>
@@ -15,7 +16,7 @@
     <label class="register-wrapper" @click.stop="Register()"><div class="register"><span v-show="!isRegister">没有账号？现在去注册</span><span v-show="isRegister">注册成功？现在去登录</span></div></label>
     <div class="line"></div>
     <label class="yzm-wrapper">
-      <span @click="newYZM()"><yan-zheng-ma ref="yzm" @yzm="setYZM"></yan-zheng-ma></span><span class="yzm"><input type="text" v-model="yzmText" placeholder="请输入验证码" class="yzm-input"></span>
+      <span @click="newYZM()"><yan-zheng-ma ref="yzm" @yzm="setYZM" class="tpyzm"></yan-zheng-ma></span><span class="yzm"><input type="text" v-model="yzmText" placeholder="请输入验证码" class="yzm-input"></span>
     </label>
     <div class="line"></div>
     <label class="submit-wrapper" @click.stop.prevent="Login"><input class="submit" type="submit" name="登录"></label>

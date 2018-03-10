@@ -85,6 +85,9 @@ const mutations = {
   },
   [types.RESET_SEARCH] (state) {
     state.search = {}
+  },
+  [types.SET_INDEX_PAGE] (state, indexpage) {
+    state.indexPage = indexpage
   }
 }
 

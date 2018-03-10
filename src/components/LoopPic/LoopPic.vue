@@ -7,7 +7,7 @@
             <picture>
               <img v-lazy='item.articleAvatarUrl' width="100%">
             </picture>
-            <div class="text">{{item.articleTitle}}</div>
+            <div class="text looptext"><div class="inlinetext">{{item.articleTitle}}</div></div>
           </li>
         </transition>
       </ul>
@@ -33,6 +33,7 @@
 <script type="text/ecmascript-6">
   import {mapGetters, mapMutations} from 'vuex'
   import axios from 'axios'
+  import {decodeArticle} from '@/common/js/util'
 
 // 轮播图组件
   export default {
@@ -60,18 +61,22 @@
     mounted () {
       this.getLoopPic()
       // 窗口失去焦距后轮播图暂停
-      window.addEventListener('focus', () => {
-        this.timer = false
-        this.autoLoop()
-      })
+      window.addEventListener('focus', this.playLoop())
       // 窗口获得焦距后轮播图再次播放
-      window.addEventListener('blur', () => {
-        this.timer = true
-      })
+      window.addEventListener('blur', this.stopLoop())
       this.autoLoop()
     },
     methods: {
       // 自动轮播
+      playLoop () {
+        setTimeout(() => {
+          this.timer = false
+          this.autoLoop()
+        }, 5000)
+      },
+      stopLoop () {
+        this.timer = true
+      },
       autoLoop () {
         if (this.timer) {
           return
@@ -79,7 +84,7 @@
         this.addPage()
         setTimeout(() => {
           this.autoLoop()
-        }, 3000)
+        }, 5000)
       },
       // 轮播到下一页
       addPage () {
@@ -128,6 +133,9 @@
           let res = response.data
           if (res.status === '0') {
             this.loopPics = res.result
+            this.loopPics.forEach((item) => {
+              decodeArticle(item)
+            })
             this.resetSearch()
           } else {
             console.log(res.msg)

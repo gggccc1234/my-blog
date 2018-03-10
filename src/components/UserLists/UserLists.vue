@@ -52,8 +52,8 @@
     methods: {
       getUserLists () {
         let param = {
-          page: this.page,
-          pageSize: 10,
+          page: 1,
+          pageSize: 9999,
           search: {},
           sort: {
             userId: -1

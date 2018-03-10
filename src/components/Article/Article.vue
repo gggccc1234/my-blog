@@ -35,10 +35,21 @@
           <div class="article-text">{{currentArticle.articleComment}}评论</div>
         </div>
       </div>
+      <div class="return-wrapper">
+        <a class="returnP" @click="turnmainpage()">
+          <img src="./back.svg" width="30px" class="returnicon">
+          <span class="returntext">首页</span>
+        </a>
+      </div>
       <div class="line"></div>
       <!-- 文章正文 -->
       <div class="articleContent">
-        <div id="123"></div>
+        <div id="articleCont" class="articleCont"></div>
+      </div>
+      <div class="line"></div>
+      <div class="paper" style="display: none">
+        <span class="prevpaper">上篇</span>
+        <span class="nextpaper">下篇</span>
       </div>
       <div class="line"></div>
       <!-- 文章底部 -->
@@ -72,6 +83,7 @@
   import {mapGetters, mapMutations} from 'vuex'
   import Comment from '@/components/Comment/Comment'
   import {loginMixin, getDetailMixin, collectMixin} from '@/common/js/mixin'
+  import $ from 'jquery'
 
   export default {
     mixins: [loginMixin, getDetailMixin, collectMixin],
@@ -107,8 +119,53 @@
         }
         this.collect(this.currentArticle.articleId, this.currentUser.userId)
       },
+      turnmainpage () {
+        this.$router.push('/mainpage')
+      },
       setArticleContent (obj) {
-        document.getElementById('123').innerHTML = obj.articleContent
+        document.getElementById('articleCont').innerHTML = obj.articleContent
+        $('#articleCont blockquote').css({
+          'background-color': '#a1d0dd',
+          'line-height': '22px',
+          'margin': '5px 6px',
+          'border-radius': '5px',
+          'padding': '10px 15px',
+          'text-indent': '2em',
+          'max-height': '500px',
+          'overflow': 'auto',
+          'font-size': '16px',
+          'border': '1px solid #fff'
+        })
+        $('#articleCont p').css({
+          'padding': '5px 15px',
+          'line-height': '22px',
+          'font-size': '16px',
+          'margin': '0 6px'
+        })
+        $('#articleCont pre').css({
+          'white-space': 'pre-wrap',
+          'word-wrap': 'break-word',
+          'border': '1px solid rgba(0,0,0,0.3)',
+          'overflow': 'auto',
+          'font-size': '14px',
+          'background-color': 'white',
+          'padding': '15px',
+          'line-height': '18px',
+          'margin': '6px'
+        })
+        $('#articleCont h1').css({
+          'background-color': '#a1d0dd',
+          'border-left': '6px solid #3b636e',
+          'border-right': '6px solid #3b636e',
+          'border-radius': '6px',
+          'line-height': '26px',
+          'margin': '10px 0',
+          'padding': '10px 13px',
+          'max-height': '500px',
+          'overflow': 'auto',
+          'font-size': '20px',
+          'text-align': 'left'
+        })
       },
       ...mapMutations({
         setCurrentArticle: 'SET_CURRENT_ARTICLE'

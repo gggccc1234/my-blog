@@ -1,30 +1,32 @@
 <template>
-  <div class="main-page">
+  <article class="main-page">
     <!-- 博客主页 -->
     <!-- 使用css sticky 粘性布局 -->
-    <div class="up-wrap">
+    <header class="up-wrap">
       <!-- 上部 -->
-      <div class="up clearfix">
-        <div class="header-warpper">
+      <section class="up clearfix">
+        <section class="header-warpper">
           <vue-header></vue-header>
           <!-- 头部组件 -->
-        </div>
-        <div class="content-warpper">
+        </section>
+        <article class="content-warpper">
           <transition name="turnpage">
-            <router-view class="turn"></router-view>
+            <keep-alive>
+              <router-view class="turn"></router-view>
+            </keep-alive>
           </transition>
-        </div>
-      </div>
-    </div>
-    <div class="footer-warpper">
+        </article>
+      </section>
+    </header>
+    <footer class="footer-warpper">
       <!-- 脚部 -->
       <vue-footer></vue-footer>
-    </div>
+    </footer>
     <div class="fixer">
       <!-- 浮动层 -->
       <vue-fixer></vue-fixer>
     </div>
-  </div>
+  </article>
 </template>
 
 <style lang="stylus" scoped>

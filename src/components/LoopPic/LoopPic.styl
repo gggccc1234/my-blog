@@ -25,31 +25,28 @@
         transform: translateX(-100%)
     .text
       position: absolute
-      display: inline-block
       z-index: 99
-      top: 0
+      bottom: -10px
       left: 0%
-      bottom: 1px;
       height: 40px
-      width: 800px
+      width: 100%
       color: #fff
       background: #5c8a97
-      text-align: left
-      padding: 0px 10px
       line-height: 40px
-      font-size: 30px
-      transform: translateX(-250px) translateY(50px) rotate(-30deg)
+      font-size: 20px
       text-align: center
   .loop-button-wrapper
     position: absolute
     display: flex
     height: 50px
-    right: 10%
+    right: 0
+    left: 0
     bottom: 10px
     z-index: 99
+    justify-content: center
     .loop-button
-      flex: 1
-      position: relative
+      flex: 0 0 32px
+      display: inline-block
       bottom: 1px;
       background: #5c8a97
       margin: 5px
@@ -76,3 +73,8 @@
 @media only screen and (max-width: 500px)
   .loop-pic-wrapper
     border: 0px #5c8a97 solid
+    .loop-pic
+      .text
+        bottom: -5px
+        width: 100%
+        font-size: 15px

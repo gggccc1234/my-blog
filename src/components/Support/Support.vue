@@ -1,6 +1,6 @@
 <template>
   <div>
-    赞助作者
+    施工中。。。
   </div>
 </template>
 

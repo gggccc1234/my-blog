@@ -134,6 +134,7 @@ router.post("/edit", function (req, res, next) {
     let articleContent = fileds.articleContent
     let articleTitle = fileds.articleTitle
     let articleLabels = JSON.parse(fileds.articleLabels).arr
+    // 解析为数组
     let articleSummary = fileds.articleSummary
     let articleAvatarUrl = fileds.articleAvatarUrl
     let articleId = fileds.articleId
@@ -171,8 +172,8 @@ router.post("/edit", function (req, res, next) {
       loop: false
     };
 
-
-    if (files.avatar !== undefined && files.avatar !== null && files.avatar !== '' && articleAvatarUrl === '') {
+    if (files.avatar !== undefined && files.avatar !== null && files.avatar !== '') {
+      console.log(9999)
       // 有上传新头像
       let imgPath = files.avatar.path
       let data = fs.readFileSync(imgPath)
@@ -202,11 +203,12 @@ router.post("/edit", function (req, res, next) {
           })
         }
         if (respInfo.statusCode == 200) {
+          fs.unlink(loadFile, function (err2, doc2) {})
           list.articleAvatarUrl = wailianyuming + imgName
-          console.log(list.articleAvatarUrl)
           // 上传成功，图片链接更新为七牛的外链
-          if (publish === '0') {
+          if (publish === '0' || publish === 0) {
             // 发表文章
+            console.log(8888)
             let newArticledetail = new Articledetails(detail)
             newArticledetail.save(function (err, doc) {
               if (err) {
@@ -215,93 +217,70 @@ router.post("/edit", function (req, res, next) {
                   msg: err.message,
                   result: ''
                 })
-              }
-            })
-            // 更新文章简介
-            let newArticles = new Articles(list)
-            newArticles.save(function (err, doc) {
-              if (err) {
-                res.json({
-                  status: '1',
-                  msg: err.message,
-                  result: ''
-                })
               } else {
-                fs.unlink(loadFile, function (err) {})
+                // 更新文章简介
+                console.log(7777)
+                let newArticles = new Articles(list)
+                newArticles.save(function (err1, doc1) {
+                  if (err1) {
+                    res.json({
+                      status: '1',
+                      msg: err1.message,
+                      result: ''
+                    })
+                  } else {
+                    // 更新文章分类标签
+                    console.log(6666)
+                    articleLabels.forEach((item, index, alabels) => {
+                      Labels.update({
+                        name: item.labelName
+                      }, {$inc: {
+                        num: 1
+                      }}, function (err3, doc3) {
+                        if (err3) {
+                          res.json({
+                            status: '8',
+                            msg: err.message,
+                            result: ''
+                          })
+                        } else if (index === alabels.length - 1) {
+                          console.log(5555)
+                          let tptime = publishTime.substring(0, 7)
+                          if (tptime[tptime.length - 1] === '-') {
+                            tptime = tptime.substring(0, 6)
+                          }
+                          // 更新文章时间标签
+                          Times.update({
+                            name: tptime
+                          }, {
+                            $inc: {
+                              num: 1
+                            }
+                          }, function (err4, doc4) {
+                            if (err) {
+                              res.json({
+                                status: '9',
+                                msg: err.message,
+                                result: ''
+                              })
+                            } else {
+                              console.log(4444)
+                              res.json({
+                                status: '0',
+                                msg: '发表成功'
+                              })
+                            }
+                          })
+                        }
+                      })
+                    })
+                  }
+                })
               }
             })
-            // 更新文章分类标签
-            articleLabels.forEach((item) => {
-              Labels.update({
-                name: item.labelName
-              }, {$inc: {
-                num: 1
-              }}, function (err) {
-                if (err) {
-                  res.json({
-                    status: '8',
-                    msg: err.message,
-                    result: ''
-                  })
-                }
-              })
-            })
-            let tptime = publishTime.substring(0, 7)
-            // 更新文章时间标签
-            Times.update({
-              name: tptime
-            }, {
-              $inc: {
-                num: 1
-              }
-            }, function (err, doc) {
-              if (err) {
-                res.json({
-                  status: '9',
-                  msg: err.message,
-                  result: ''
-                })
-              } else {
-                res.json({
-                  status: '0',
-                  msg: '发表成功'
-                })
-              }
-            })
-          } else if (publish === '1'){
-            // 更新草稿
-            let newDraftdetail = new Draftdetails(detail)
-            // 更新草稿详情
-            newDraftdetail.save(function (err, doc) {
-              if (err) {
-                res.json({
-                  status: '2',
-                  msg: err.message,
-                  result: ''
-                })
-              }
-            })
-            // 更新草稿简介
-            let newDrafts = new Drafts(list)
-            newDrafts.save(function (err, doc) {
-              if (err) {
-                res.json({
-                  status: '1',
-                  msg: err.message,
-                  result: ''
-                })
-              } else {
-                fs.unlink(loadFile, function (err) {})
-                res.json({
-                  status: '0',
-                  msg: '发表成功'
-                })
-              }
-            }) 
-          } else if (publish === '2'){
-            // 更新文章
-            console.log(5113513)
-            Articles.update({
+          } else if (publish === '2' || publish === 2){
+            console.log(list)
+            Articles.findOne({
               articleId: articleId
             }, function (err, doc) {
               if (err) {
@@ -311,70 +290,77 @@ router.post("/edit", function (req, res, next) {
                   result: ''
                 })
               } else {
-                doc.articleLabels.forEach((item) => {
-                  // 旧的文章的分类标签减一
+                // 旧的文章分类标签减一
+                doc.articleLabels.forEach((item, index, alabels) => {
                   Labels.update({
                     name: item.labelName
                   }, {$inc: {
                     num: -1
-                  }}, function (err) {
-                    if (err) {
+                  }}, function (err1) {
+                    if (err1) {
                       res.json({
                         status: '8',
-                        msg: err.message,
+                        msg: err1.message,
                         result: ''
+                      })
+                    } else if (index === alabels.length - 1){
+                      Articledetails.update({
+                        // 更新文章详情
+                        articleId: articleId
+                      }, {
+                        $set: detail
+                      }, function (err2) {
+                        if (err2) {
+                          res.json({
+                            status: '2',
+                            msg: err2.message,
+                            result: ''
+                          })
+                        } else {
+                          // 更新文章简介
+                          Articles.update({
+                            articleId: articleId
+                          }, {
+                            $set: list
+                          }, function (err3) {
+                            if (err3) {
+                              res.json({
+                                status: '1',
+                                msg: err3.message,
+                                result: ''
+                              })
+                            } else {
+                              // 更新新的文章标签
+                              console.log(articleLabels)
+                              articleLabels.forEach((item1, index1, alabels1) => {
+                                Labels.update({
+                                  name: item1.labelName
+                                }, {$inc: {
+                                  num: 1
+                                }}, function (err4) {
+                                  if (err4) {
+                                    res.json({
+                                      status: '8',
+                                      msg: err4.message,
+                                      result: ''
+                                    })
+                                  } else if (index1 === alabels1.length - 1) {
+                                    res.json({
+                                      status: '0',
+                                      msg: '',
+                                      result: ''
+                                    })
+                                  }
+                                })
+                              })
+                            }
+                          })
+                        }
                       })
                     }
                   })
                 })
               }
-            })
-            Articledetails.update({
-              // 更新文章详情
-              articleId: articleId
-            }, {
-              $set: detail
-            }, function (err, doc) {
-              if (err) {
-                res.json({
-                  status: '2',
-                  msg: err.message,
-                  result: ''
-                })
-              }
-            })
-            // 更新文章简介
-            Articles.update({
-              articleId: articleId
-            }, {
-              $set: list
-            }, function (err, doc) {
-              if (err) {
-                res.json({
-                  status: '1',
-                  msg: err.message,
-                  result: ''
-                })
-              } else {
-                fs.unlink(loadFile, function (err) {})
-                // 更新完毕，删除图片
-              }
-            })
-            articleLabels.forEach((item) => {
-              // 更新新的文章分类标签
-              Labels.update({
-                name: item.labelName
-              }, {$inc: {
-                num: 1
-              }}, function (err) {
-                if (err) {
-                  res.json({
-                    status: '8',
-                    msg: err.message,
-                    result: ''
-                  })
-                }
-              })
             })
           }
         } else {
@@ -385,7 +371,7 @@ router.post("/edit", function (req, res, next) {
         }
       })
     } else {
-      if (publish === '2'){
+      if (publish === '2' || publish === 2){
         // 无图片更新
         Articles.findOne({
           articleId: articleId
@@ -398,66 +384,76 @@ router.post("/edit", function (req, res, next) {
             })
           } else {
             // 旧的文章分类标签减一
-            doc.articleLabels.forEach((item) => {
+            doc.articleLabels.forEach((item, index, alabels) => {
               Labels.update({
                 name: item.labelName
               }, {$inc: {
                 num: -1
-              }}, function (err) {
-                if (err) {
+              }}, function (err1) {
+                if (err1) {
                   res.json({
                     status: '8',
-                    msg: err.message,
+                    msg: err1.message,
                     result: ''
+                  })
+                } else if (index === alabels.length - 1){
+                  Articledetails.update({
+                    // 更新文章详情
+                    articleId: articleId
+                  }, {
+                    $set: detail
+                  }, function (err2) {
+                    if (err2) {
+                      res.json({
+                        status: '2',
+                        msg: err2.message,
+                        result: ''
+                      })
+                    } else {
+                      // 更新文章简介
+                      Articles.update({
+                        articleId: articleId
+                      }, {
+                        $set: list
+                      }, function (err3) {
+                        if (err3) {
+                          res.json({
+                            status: '1',
+                            msg: err3.message,
+                            result: ''
+                          })
+                        } else {
+                          // 更新新的文章标签
+                          console.log(articleLabels)
+                          articleLabels.forEach((item1, index1, alabels1) => {
+                            Labels.update({
+                              name: item1.labelName
+                            }, {$inc: {
+                              num: 1
+                            }}, function (err4) {
+                              if (err4) {
+                                res.json({
+                                  status: '8',
+                                  msg: err4.message,
+                                  result: ''
+                                })
+                              } else if (index1 === alabels1.length - 1) {
+                                res.json({
+                                  status: '0',
+                                  msg: '',
+                                  result: ''
+                                })
+                              }
+                            })
+                          })
+                        }
+                      })
+                    }
                   })
                 }
               })
             })
           }
-        })
-        Articledetails.update({
-          // 更新文章详情
-          articleId: articleId
-        }, {
-          $set: detail
-        }, function (err, doc) {
-          if (err) {
-            res.json({
-              status: '2',
-              msg: err.message,
-              result: ''
-            })
-          }
-        })
-        // 更新文章简介
-        Articles.update({
-          articleId: articleId
-        }, {
-          $set: list
-        }, function (err, doc) {
-          if (err) {
-            res.json({
-              status: '1',
-              msg: err.message,
-              result: ''
-            })
-          } 
-        })
-        // 更新新的文章标签
-        articleLabels.forEach((item) => {
-          Labels.update({
-            name: item.labelName
-          }, {$inc: {
-            num: 1
-          }}, function (err) {
-            if (err) {
-              res.json({
-                status: '8',
-                msg: err.message,
-                result: ''
-              })
-            }
-          })
         })
       }
     }

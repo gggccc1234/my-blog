@@ -18,11 +18,11 @@
 
   export default {
     created () {
-      this.setPage(1)
-      this.setPageSize(10)
-      this.setSort({
-        publishTime: -1
-      })
+      // this.setPage(1)
+      // this.setPageSize(10)
+      // this.setSort({
+      //   publishTime: -1
+      // })
       this.getPageArticle()
     },
     computed: {

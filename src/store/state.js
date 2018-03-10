@@ -24,7 +24,8 @@ const state = {
   isChecked: false,
   isAdmin: false,
   search: {},
-  pageSize: 0,
-  sort: {}
+  pageSize: 10,
+  sort: {},
+  indexPage: 0
 }
 export default state

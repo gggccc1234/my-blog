@@ -87,11 +87,9 @@
           let res = response.data
           if (res.status === '0') {
             let comment = res.result
-            console.log(comment)
             comment.commentText = decodeURIComponent(comment.commentText)
             comment.userName = unescape(comment.userName)
             comment.userAvatarUrl = decodeURIComponent(comment.userAvatarUrl)
-            console.log(comment)
             this.articleComments.unshift(comment)
             this.setCommentadd()
           }
